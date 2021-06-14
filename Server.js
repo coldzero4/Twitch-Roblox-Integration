@@ -1,28 +1,35 @@
 const tmi = require('tmi.js');
 const express = require("express");
-const axios = require("axios");
+const dotenv = require("dotenv").config();
 
-// Twitch config
+// This is where you can set the twitch channels' chats that the bot will listen to
+const channelNames = ["Raretendoblox"];
 
-const channelNames = ["CHANNEL NAME HERE"]; // A list of strings of channel names that the twitch bot will listen to the chat(s) of. There are comma-separated if you intend to have multiple channels to listen to 
-const clientId = "CLIENT ID HERE"; // Client ID of your application
-const clientSecret = "CLIENT SECRET HERE"; // Client secret of your application
-const username = "USERNAME HERE"; // Username of the channel to be used as a twitch bot (You can use your own main account if it is currently authenticated) 
-const password = "PASSWORD HERE"; // OAuth token generated from TwitchApps
+const clientId = process.env.clientId;
+const username = process.env.username;
+const password = process.env.password;
 
-// Server config (Only if you host this yourself)
+// server config
 
-const hostname = "";
+const hostname = "HOST_NAME_HERE";
 const port = 8000;
+
+// setting up the server
 
 const app = express();
 
+// initialising requests array
+
 let requests = [];
+
+// get inputs
 
 app.get("/twitch", (req, res) => {
    res.send(requests);
    res.end();
 })
+
+// clear inputs
 
 app.delete("/twitch", (req, res) => {
     let START = req.query.start;
@@ -34,6 +41,8 @@ app.delete("/twitch", (req, res) => {
 app.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
 })
+
+// Define configuration options
 
 const opts = {
     identity: {
