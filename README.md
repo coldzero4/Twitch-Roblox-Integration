@@ -4,6 +4,10 @@ This was made just for fun; I got bored and decided to make this. Some people as
 
 This repository allows you to make a twitch chat move an in-game roblox character in realtime by simply communicating with a web server. Messages such as `up`, `down`, `left`, or `right` can be sent in a twitch chat and a roblox character is able to move in the respective direction
 
+[See Original Tweet](https://twitter.com/Raretendoblox_/status/1401998439022575616)
+
+https://user-images.githubusercontent.com/31361628/121931747-04e2a600-cd12-11eb-9443-ff566f681488.mp4
+
 # How does it work?
 An external server is set up (using node.js) which the roblox game will communicate with. The external server will listen for new messages in a twitch chat and is temporarily stored internally. A REST API endpoint is provided, `/twitch`, which allows the roblox game to grab inputs from the twitch chat to process. Information of the inputs is grabbed via long polling, where the game sends 8 requests/sec and grabs new inputs to be processed and then processes them
 
