@@ -28,7 +28,13 @@ This will open Windows' command prompt.
 - `["Raretendoblox"]`
 - `["Raretendoblox", "Summit1g"]`
 
-**Step 5**: Open the `.env` file which describes the configurations of the twitch bot. The parameters and values are as follows:
+**Step 5**: Create a file and name it `.env`. Open the `.env` file which describes the configurations of the twitch bot and paste the following in the file:
+```
+clientId=CLIENT_ID_HERE
+username=USERNAME_HERE
+password=OAUTH_PASSWORD_HERE
+```
+The parameters and values are as follows:
 - `clientId`: On the "Applications" category of the Twitch Developer Console, click the "Manage" button on your application. The clientId is right under the "Client Id" heading of the fields if you scroll down on the page.
 - `username`: This is the username of the twitch account that will be used as a bot. This can be your twitch channel username or perhaps an secondary account.
 - `password`: This is the oauth token used to authenticate a twitch account. If you're currently authenticated to the account with the name specified in the `username` field, visit [this page](https://twitchapps.com/tmi/) to obtain your oauth token
